@@ -1,13 +1,12 @@
 import React, { useState } from 'react';
 import axios from 'axios';
-
+import "./App.css";
 
 
 const App = () => {
 
 
   const [username, setUsername] = useState([]);
-  const [results, setResults] = useState([]);
   const [resultsDecOrder, setResultsDecOrder] = useState([]);
   const [forked, setForked] = useState([]);
   const [check, setCheck] = useState(false);
@@ -17,11 +16,9 @@ const App = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     let username = document.getElementById("inputField").value
-    //  setUsername(username)
     axios.get(`https://api.github.com/users/${username}/repos`)
       .then((res) => {
         console.log(res.data)
-        //  .then((res) => {
         let decOrder = res.data.sort((a, b) => {
           return b.size - a.size;
         })
@@ -48,7 +45,7 @@ const App = () => {
   }
 
 
-  const hanldeInputChange = (e) => {
+  const handleInputChange = (e) => {
     setUsername(e.target.value)
   }
 
@@ -75,7 +72,7 @@ const App = () => {
           <input
             type="text"
             id="inputField"
-            onChange={(e) => hanldeInputChange(e)}
+            onChange={(e) => handleInputChange(e)}
           />
           <label>include Fork:
             <input
