@@ -16,7 +16,7 @@ const App = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    let username = document.getElementById("inputFeild").value
+    let username = document.getElementById("inputField").value
     //  setUsername(username)
     axios.get(`https://api.github.com/users/${username}/repos`)
       .then((res) => {
@@ -59,7 +59,7 @@ const App = () => {
   // var dataToDisplay = !check ? resultsDecOrder : forked;
 
 
-  var disabled = !document.getElementById("inputFeild")?.value?.length;
+  var disabled = !document.getElementById("inputField")?.value?.length;
 
 
   return (
@@ -74,7 +74,7 @@ const App = () => {
           <label>Github username:</label>
           <input
             type="text"
-            id="inputFeild"
+            id="inputField"
             onChange={(e) => hanldeInputChange(e)}
           />
           <label>include Fork:
